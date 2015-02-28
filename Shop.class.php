@@ -81,5 +81,21 @@ class Shop {
 		return $this->datetime_registered;
 	}
 	
+	public function getAllProductId() {
+		
+		include("database_connection.php");
+		
+		$array_product_id = array();
+		
+		$select_products_db = $db->prepare('SELECT product_id FROM products WHERE shop_id = :shop_id');
+		$select_products_db->execute(array('shop_id' => $this->shop_id));
+		while ($select_products_data_db = $select_products_db->fetch())
+		{
+			array_push($array_product_id, $select_products_data_db['product_id']);
+			
+		} $select_products_db->closeCursor();
+		
+		return $array_product_id;
+	}
 }
 ?>
