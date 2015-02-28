@@ -18,9 +18,9 @@
 			<br>
 			<table id="data" class="table table-striped table-hover">
 				<thead><tr><th>Customer</th>   <th>Order</th> <th>Status</th></tr></thead>
-				<tbody><tr><td>John</td> <td>Cappaccino (soy milk)</td><td><span class="label label-warning">5 minutes</span></td></tr>
+				<tbody><tr><td>John</td> <td>Cappaccino - Large (soy milk)</td><td><span class="label label-warning">5 minutes</span></td></tr>
 				<tr><td>Amelia</td> <td>Double Expresso</td><td><span class="label label-warning">7 minutes</span></td></tr>
-				<tr><td>Bob</td> <td>Hot Chocolate</td><td><span class="label label-success">collected</span></td></tr></tbody>
+				<tr><td>Bob</td> <td>Hot Chocolate - Small</td><td><span class="label label-success">collected</span></td></tr></tbody>
 			</table>
 		</div>
 	 
@@ -28,14 +28,15 @@
 </html>
 
 <script type="text/javascript">
-	var table;
 	$(document).ready(function(){
-		table = $('#data').DataTable( {
-        "order": [[ 2, "asc" ]]
-    } );
+		var table = $('#data').DataTable( {
+       		"order": [[ 2, "asc" ]]
+    	});
 
-		$.get("http://extramegacool.com/quickstart.me/api_get_shop_info.php", {shop_id: 1}, function(data){
-			console.log(data);
+		$.post("http://extramegacool.com/quickstart.me/api_get_shop_info.php", {shop_id: 1}, function(data){
+			console.log($.parseJSON(data));
+		}, "json").fail(function(){
+			console.log("fail");
 		});
 
 
