@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Sam 28 Février 2015 à 17:30
+-- Généré le: Sam 28 Février 2015 à 18:15
 -- Version du serveur: 5.5.29
 -- Version de PHP: 5.4.10
 
@@ -22,6 +22,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `favorite_shops` (
   `favorite_shop_id` int(11) NOT NULL AUTO_INCREMENT,
+  `shop_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `datetime_created` datetime NOT NULL,
   PRIMARY KEY (`favorite_shop_id`)
@@ -35,7 +36,8 @@ CREATE TABLE `favorite_shops` (
 
 CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL AUTO_INCREMENT,
-  `selection_id` int(11) NOT NULL,
+  `product_configuration_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `is_received` tinyint(4) NOT NULL,
   `datetime_ordered` datetime NOT NULL,
   PRIMARY KEY (`order_id`)
