@@ -75,12 +75,20 @@
 <hr />
 <hr />
 <hr />
+<h1 style="background-color:black;color:white;">FOR ROBERT (coffee shop side)</h1>
 <hr />
 <hr />
 
 <h1>GET SHOP INFO</h1>
 <form method="post" action="api_get_shop_info.php">
-	<label for="user_id">user_id</label><input type="input" name="user_id" id="user_id" value="1" /><br />
+	<label for="shop_id">shop_id</label><input type="input" name="shop_id" id="shop_id" value="1" /><br />
+	<button type="submit">SUBMIT</button>
+</form>
+
+<hr />
+
+<h1>GET ORDERS</h1>
+<form method="post" action="api_get_orders.php">
 	<label for="shop_id">shop_id</label><input type="input" name="shop_id" id="shop_id" value="1" /><br />
 	<button type="submit">SUBMIT</button>
 </form>

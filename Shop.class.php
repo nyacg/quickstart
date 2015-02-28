@@ -97,5 +97,34 @@ class Shop {
 		
 		return $array_product_id;
 	}
+	
+	public function getOrders() {
+		
+		include("database_connection.php");
+		
+		$array_orders = array();
+		
+		$select_orders_db = $db->prepare("SELECT p.name AS name, p.price AS price, p.product_id AS product_id, DATE_FORMAT(o.datetime_ordered, '%H:%i') AS time
+										FROM orders o
+										LEFT JOIN products_configurations p
+										ON o.product_configuration_id = p.product_configuration_id
+										WHERE o.is_received = :is_received
+										");
+		$select_orders_db->execute(array(
+										'is_received' => 0
+										));
+		while ($select_orders_data_db = $select_orders_db->fetch()) 
+		{
+			array_push($array_orders, array(
+										'product_configuration_name' => $select_orders_data_db['name'],
+										'product_configuration_price' => $select_orders_data_db['price'],
+										'product_configuration_product_id' => $select_orders_data_db['product_id'],
+										'order_time' => $select_orders_data_db['time']
+										));
+		
+		} $select_orders_db->closeCursor();
+		
+		return $array_orders;
+	}
 }
 ?>
