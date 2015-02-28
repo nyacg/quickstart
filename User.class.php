@@ -67,6 +67,17 @@ class User {
 		return $this->datetime_registered;
 	}
 	
+	public function setPassword($password) {
+		
+		$this->password = sha1($password);
+		$update_users_bd = $bd->prepare('UPDATE users SET password = :password WHERE user_id = :user_id');
+		$update_users_bd->execute(array(
+									'password' => $this->password,
+									'user_id' => $this->user_id
+									));
+		$update_users_bd->closeCursor();
+	}
+	
 	public function setUserParams($first_name, $last_name, $email) {
 		
 		$this->first_name = htmlspecialchars($first_name);
@@ -76,10 +87,67 @@ class User {
 		$update_users_bd->execute(array(
 									'first_name' => $this->first_name,
 									'last_name' => $this->last_name,
-									'email' => $this->email
+									'email' => $this->email,
+									'user_id' => $this->user_id
 									));
 		$update_users_bd->closeCursor();
 	}
 	
+	/*
+	*
+	*	From table 'favorite_shops' but returns shop_id to go faster
+	*	It is an array, so easier to change in the future when multiple shops
+	*/
+	public function getAllIdShop() {
+		
+		include("database_connection.php");
+		
+		$array_shop_id = array();
+		
+		$select_favortie_shops_db = $db->prepare('SELECT shop_id FROM favorite_shops WHERE user_id = :user_id');
+		$select_favortie_shops_db->execute(array('user_id' => $this->user_id));
+		while ($select_favortie_shops_data_db = $select_favortie_shops_db->fetch())
+		{
+			array_push($array_shop_id, $select_favortie_shops_data_db['shop_id']);		
+
+		} $select_favortie_shops_db->closeCursor();
+		
+		return $array_shop_id;
+	}
+	
+	public function getProductConfigurationIdFromSelection($shop_id) {
+		
+		include("database_connection.php");
+		
+		$product_configuration_id = 0;
+		
+		$select_selections_db = $db->prepare('SELECT product_configuration_id FROM selections WHERE user_id = :user_id AND shop_id = :shop_id');
+		$select_selections_db->execute(array(
+											'user_id' => $this->user_id,
+											'shop_id' => $shop_id
+											));
+		if ($select_selections_data_db = $select_selections_db->fetch() AND 0 < $select_selections_data_db['product_configuration_id'])
+		{
+			$product_configuration_id = $select_selections_data_db['product_configuration_id'];
+		
+		} $select_selections_db->closeCursor();
+		
+		return $product_configuration_id;
+	}
+	
+	public function addOrder($product_configuration_id) {
+		
+		include("database_connection.php");
+		
+		$insert_order_db = $db->prepare('INSERT INTO order(product_configuration_id, user_id, is_received, datetime_order)
+													VALUES(:product_configuration_id, :user_id, :is_received, :datetime_order)');
+		$insert_order_db->execute(array(
+									'product_configuration_id' => $product_configuration_id,
+									'user_id' => $this->user_id,
+									'is_received' => 0,
+									'datetime_order' => getDateForDatabase()
+									));
+		$insert_order_db->closeCursor();
+	}
 }
 ?>
