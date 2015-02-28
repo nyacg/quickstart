@@ -1,0 +1,4 @@
+Name										Location																							Lat/Long
+Starbucks Coffee Company - Strand			Unit 2, Burleigh House, 355-359 Strand, Royal Opera House, London WC2R 0HS, United Kingdom			51.511279, -0.119781
+Costa Coffee								9-11 Kingsway, London WC2B 6UN, United Kingdom 														51.513663, -0.117807
+Dunkin'Donuts								26/28 Powis Street, Woolwich, Woolwich, London SE18 6LF												51.491154, 0.067368
