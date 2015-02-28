@@ -20,3 +20,11 @@
 	<label for="product_configuration_id">product_configuration_id</label><input type="input" name="product_configuration_id" id="product_configuration_id" value="1" /><br />
 	<button type="submit">SUBMIT</button>
 </form>
+
+<hr />
+
+<h1>GET SELECTION</h1>
+<form method="post" action="api_get_selection.php">
+	<label for="user_id">user_id</label><input type="input" name="user_id" id="user_id" value="1" /><br />
+	<button type="submit">SUBMIT</button>
+</form>

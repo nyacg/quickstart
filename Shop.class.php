@@ -14,7 +14,7 @@ class Shop {
 	public function __construct($shop_id) {
 		
 		include("database_connection.php");
-		
+
 		$select_shops_db = $db->prepare('SELECT shop_id, name, latitude, longitude, address, postcode, city, datetime_registered FROM shops WHERE shop_id = :shop_id');
 		$select_shops_db->execute(array('shop_id' => $shop_id));
 		if ($select_shops_data_db = $select_shops_db->fetch() AND 0 < $select_shops_data_db['shop_id'])

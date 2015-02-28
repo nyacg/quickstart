@@ -115,24 +115,27 @@ class User {
 		return $array_shop_id;
 	}
 	
-	public function getProductConfigurationIdFromSelection($shop_id) {
+	/*
+	*
+	*	@return	array('shop_id' => $shop_id, 'product_configuration_id' => $product_configuration_id)
+	*/
+	public function getSelection() {
 		
 		include("database_connection.php");
 		
-		$product_configuration_id = 0;
+		$array = array();
 		
-		$select_selections_db = $db->prepare('SELECT product_configuration_id FROM selections WHERE user_id = :user_id AND shop_id = :shop_id');
+		$select_selections_db = $db->prepare('SELECT shop_id, product_configuration_id FROM selections WHERE user_id = :user_id');
 		$select_selections_db->execute(array(
-											'user_id' => $this->user_id,
-											'shop_id' => $shop_id
+											'user_id' => $this->user_id
 											));
-		if ($select_selections_data_db = $select_selections_db->fetch() AND 0 < $select_selections_data_db['product_configuration_id'])
+		if ($select_selections_data_db = $select_selections_db->fetch() AND 0 < $select_selections_data_db['shop_id'])
 		{
-			$product_configuration_id = $select_selections_data_db['product_configuration_id'];
+			$array = array('shop_id' => $select_selections_data_db['shop_id'], 'product_configuration_id' => $select_selections_data_db['product_configuration_id']);
 		
 		} $select_selections_db->closeCursor();
 		
-		return $product_configuration_id;
+		return $array;
 	}
 	
 	public function addOrder($product_configuration_id) {
