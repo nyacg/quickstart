@@ -139,13 +139,13 @@ class User {
 		
 		include("database_connection.php");
 		
-		$insert_order_db = $db->prepare('INSERT INTO order(product_configuration_id, user_id, is_received, datetime_order)
-													VALUES(:product_configuration_id, :user_id, :is_received, :datetime_order)');
+		$insert_order_db = $db->prepare('INSERT INTO orders(product_configuration_id, user_id, is_received, datetime_ordered)
+													VALUES(:product_configuration_id, :user_id, :is_received, :datetime_ordered)');
 		$insert_order_db->execute(array(
 									'product_configuration_id' => $product_configuration_id,
 									'user_id' => $this->user_id,
 									'is_received' => 0,
-									'datetime_order' => getDateForDatabase()
+									'datetime_ordered' => getDateForDatabase()
 									));
 		$insert_order_db->closeCursor();
 	}

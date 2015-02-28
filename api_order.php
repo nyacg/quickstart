@@ -18,7 +18,7 @@ if (isset($_POST['user_id']) AND isset($_POST['product_configuration_id']))
 	if ($user_connected->userExists() AND $product_configuration_displayed->productConfigurationExists())
 	{
 	
-		$user_connected->addOrder($product_configuration_displayed->getProductConfigurationExists());
+		$user_connected->addOrder($product_configuration_displayed->getProductConfigurationId());
 		$array_values_json['result'] = true;
 	}
 }
