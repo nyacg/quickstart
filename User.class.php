@@ -152,7 +152,7 @@ class User {
 		$update_selections_db->closeCursor();
 	}
 	
-	public function addOrder($product_configuration_id) {
+	public function addOrder($product_configuration_id, $datetime_ordered) {
 		
 		include("database_connection.php");
 		
@@ -162,7 +162,7 @@ class User {
 									'product_configuration_id' => $product_configuration_id,
 									'user_id' => $this->user_id,
 									'is_received' => 0,
-									'datetime_ordered' => getDateForDatabase()
+									'datetime_ordered' => $datetime_ordered
 									));
 		$insert_order_db->closeCursor();
 	}
