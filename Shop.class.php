@@ -104,14 +104,15 @@ class Shop {
 		
 		$array_orders = array();
 		
-		$select_orders_db = $db->prepare("SELECT p.name AS name, p.price AS price, p.product_id AS product_id, DATE_FORMAT(o.datetime_ordered, '%H:%i') AS time
+		$select_orders_db = $db->prepare("SELECT p.name AS name, p.price AS price, p.product_id AS product_id, o.datetime_ordered AS datetime_ordered, DATE_FORMAT(o.datetime_ordered, '%H:%i') AS time
 										FROM orders o
 										LEFT JOIN products_configurations p
 										ON o.product_configuration_id = p.product_configuration_id
-										WHERE o.is_received = :is_received
+										WHERE o.is_received = :is_received AND DATE_FORMAT(o.datetime_ordered, '%Y-%m-%d') = :day_ordered
 										");
 		$select_orders_db->execute(array(
-										'is_received' => 0
+										'is_received' => 0,
+										'day_ordered' => substr(getDateForDatabase(), 0, 10)
 										));
 		while ($select_orders_data_db = $select_orders_db->fetch()) 
 		{
@@ -119,7 +120,8 @@ class Shop {
 										'product_configuration_name' => $select_orders_data_db['name'],
 										'product_configuration_price' => $select_orders_data_db['price'],
 										'product_configuration_product_id' => $select_orders_data_db['product_id'],
-										'order_time' => $select_orders_data_db['time']
+										'order_time' => $select_orders_data_db['time'],
+										'datetime_ordered' => $select_orders_data_db['datetime_ordered']
 										));
 		
 		} $select_orders_db->closeCursor();

@@ -24,10 +24,19 @@ if (isset($_POST['shop_id']))
 			
 			$product_in_loop = new Product($array_order_in_loop['product_configuration_product_id']);
 			
+			$sign_timestamp = '';
+			$timestamp_now = strtotime(getDateForDatabase());
+			$timestamp_datetime_ordered = strtotime($array_order_in_loop['datetime_ordered']);
+			if ($timestamp_now > $timestamp_datetime_ordered)
+			{
+				$sign_timestamp = '-';
+			}
+			$time_remaining = $sign_timestamp . gmdate('H:i', $timestamp_now - $timestamp_datetime_ordered);
 			array_push($array_values_json, array(
 												'product_name' => $product_in_loop->getName() . ' (' . $array_order_in_loop['product_configuration_name'] . ')',
 												'product_price' => $array_order_in_loop['product_configuration_price'],
-												'order_time' => $array_order_in_loop['order_time']
+												'order_time' => $array_order_in_loop['order_time'],
+												'time_remaining' => $time_remaining
 												));
 		}
 		
