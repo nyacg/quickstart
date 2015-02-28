@@ -37,7 +37,7 @@ class ProductConfiguration {
 	}
 	
 	public function productConfigurationExists() {
-		return $this->product_configuration_exists;
+		return $this->product_configuration_id;
 	}
 	
 	public function getProductConfigurationId() {

@@ -138,6 +138,20 @@ class User {
 		return $array;
 	}
 	
+	public function setSelection($shop_id, $product_configuration_id) {
+		
+		include("database_connection.php");
+		
+		$update_selections_db = $db->prepare('UPDATE selections SET shop_id = :shop_id, user_id = :user_id, product_configuration_id = :product_configuration_id, datetime_edited = :datetime_edited WHERE user_id = :user_id');
+		$update_selections_db->execute(array(
+										'shop_id' => $shop_id,
+										'product_configuration_id' => $product_configuration_id,
+										'datetime_edited' => getDateForDatabase(),
+										'user_id' => $this->user_id
+										));
+		$update_selections_db->closeCursor();
+	}
+	
 	public function addOrder($product_configuration_id) {
 		
 		include("database_connection.php");
@@ -151,6 +165,19 @@ class User {
 									'datetime_ordered' => getDateForDatabase()
 									));
 		$insert_order_db->closeCursor();
+	}
+	
+	public function setFavoriteShop($shop_id) {
+		
+		include("database_connection.php");
+		
+		$update_favorite_shops_db = $db->prepare('UPDATE favorite_shops SET shop_id = :shop_id, datetime_edited = :datetime_edited WHERE user_id = :user_id');
+		$update_favorite_shops_db->execute(array(
+											'shop_id' => $shop_id,
+											'datetime_edited' => getDateForDatabase(),
+											'user_id' => $this->user_id
+											));
+		$update_favorite_shops_db->closeCursor();
 	}
 }
 ?>

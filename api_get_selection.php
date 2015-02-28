@@ -1,7 +1,7 @@
 <?php
 /***********
 *
-*	Called to place an order
+*	Called to get the current selection
 *
 *
 ************/

@@ -45,8 +45,8 @@ class Shop {
 		} $select_shops_db->closeCursor();
 	}
 	
-	public function shopsExists() {
-		return $this->shopExists;
+	public function shopExists() {
+		return $this->shop_exists;
 	}
 	
 	public function getShopId() {
