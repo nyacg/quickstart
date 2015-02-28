@@ -68,7 +68,7 @@ class Product {
 		
 		$select_products_configurations_db = $db->prepare('SELECT product_configuration_id FROM products_configurations WHERE product_id = :product_id');
 		$select_products_configurations_db->execute(array(
-														'product_id' => $product_id
+														'product_id' => $this->product_id
 														));
 		while ($select_products_configurations_data_db = $select_products_configurations_db->fetch())
 		{

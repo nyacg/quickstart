@@ -29,6 +29,7 @@ if (isset($_POST['user_id']))
 			
 			$product = new Product($array_in_loop['product_id']);
 			$array_product_configuration_id = $product->getAllIdProductConfiguration();
+
 			foreach ($array_product_configuration_id AS $product_configuration_id_in_loop)
 			{
 				$product_configuration_in_loop = new ProductConfiguration($product_configuration_id_in_loop);
@@ -37,7 +38,7 @@ if (isset($_POST['user_id']))
 				$array_product_conf['product_configuration_name'] = $product_configuration_in_loop->getName();
 				$array_product_conf['product_configuration_price'] = $product_configuration_in_loop->getPrice();
 				
-				array_push($array_in_loop, $array_product_conf);
+				$array_in_loop[$product_configuration_in_loop->getProductConfigurationId()] = $array_product_conf;
 			}
 			
 			array_push($array_values_json, $array_in_loop);
