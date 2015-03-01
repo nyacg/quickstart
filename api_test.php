@@ -95,3 +95,13 @@
 	<label for="shop_id">shop_id</label><input type="input" name="shop_id" id="shop_id" value="1" /><br />
 	<button type="submit">SUBMIT</button>
 </form>
+
+
+<hr />
+
+<h1>ORDER IS RECEIVED</h1>
+<form method="post" action="api_order_is_received.php">
+	<label for="shop_id">shop_id</label><input type="input" name="shop_id" id="shop_id" value="1" /><br />
+	<label for="order_id">order_id</label><input type="input" name="order_id" id="order_id" value="1" /><br />
+	<button type="submit">SUBMIT</button>
+</form>

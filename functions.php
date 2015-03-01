@@ -119,7 +119,7 @@ function setOrderIsReceived($order_id) {
 	
 	$update_orders_db = $db->prepare('UPDATE orders SET is_received = :is_received WHERE order_id = :order_id');
 	$update_orders_db->execute(array(
-								'is_received' => $is_received,
+								'is_received' => 1,
 								'order_id' => $order_id
 								));
 	$update_orders_db->closeCursor();
