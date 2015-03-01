@@ -1,0 +1,102 @@
+		    //moar shots
+		    $('#shots').on('click', function(){
+		    	var shots = $(this).text();
+		    	if($(this).text() < 6){
+		    		$(this).text((parseInt(shots) + 1));
+		    	}
+		    	else{
+		    		$(this).text((1));
+		    	}
+		    });
+
+
+
+
+
+
+#decoration{
+  list-style-type: none;
+}
+.segmented-control{
+  margin-right: 3% !important;
+}
+#shots{
+  margin-right: 1%;
+}
+#price{
+  float: right;
+}
+.price div{
+  display: inline;
+}
+.price{
+  padding-right: 6%;
+  border: 0px;
+}
+.toggle.active{
+  background-color: #ccc;
+  border-color: #ccc;
+}
+.toggle.active:before{
+  color: black;
+}
+.toggle.active .toggle-handle{
+  border-color: #ccc; 
+}
+
+
+
+
+
+
+
+
+
+
+<span class="slide-text">
+        		<span class="optionsToggle icon gray icon-right-nav" state="inactive" ></span> 
+        		Configure
+      	  	</span>
+
+	    	<!-- Options -->
+      	  	<ul class="options" class="table-view extraoptions" >
+      	  	<li class="table-view-cell price">
+      	  		<div>Price </div>
+				<div id="price">4.99</div>
+      	  	</li>
+      	  	<div class="segmented-control">
+			  <a class="control-item active" href="#item1mobile">
+			    Small
+			  </a>
+			  <a class="control-item" href="#item2mobile">
+			    Medium
+			  </a>
+			  <a class="control-item" href="#item3mobile">
+			    Large
+			  </a>
+			</div>
+			  	<li class="table-view-cell">
+			    	Sugar
+			    	<div class="toggle active">
+			      		<div class="toggle-handle"></div>
+			    	</div>
+			  	</li>
+			  	<li class="table-view-cell">
+			    	Soy Milk
+			    	<div class="toggle">
+			      		<div class="toggle-handle"></div>
+			    	</div>
+			  	</li>
+			  	<li class="table-view-cell">
+			   		Espresso shots
+			   		<span id="shots" class="badge">4</span>
+			  	</li>
+			  	<li id="decoration">
+			  		<form class="input-group">
+		      			<div class="input-row">
+				  			<label>Special notes</label>
+    						<input type="text" placeholder="Vanilla, Ice, Ice Baby">
+			  			</div>
+			  		</form>
+			  	</li>
+		  	</ul>
