@@ -31,8 +31,12 @@ if (isset($_POST['shop_id']))
 			if ($timestamp_now > $timestamp_datetime_ordered)
 			{
 				$sign_timestamp = '-';
+				$time_remaining = gmdate('H:i', $timestamp_now - $timestamp_datetime_ordered);
 			}
-			$time_remaining = gmdate('H:i', $timestamp_datetime_ordered - $timestamp_now);
+			else
+			{
+				$time_remaining = gmdate('H:i', $timestamp_datetime_ordered - $timestamp_now);
+			}
 			
 			$hoursToMinutes = substr($time_remaining, 0, 2) * 60;
 			
