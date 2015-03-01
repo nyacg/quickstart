@@ -796,6 +796,8 @@
   };
 
   var onTouchEnd = function (e) {
+
+
     if (!slider || isScrolling) {
       return;
     }
@@ -806,7 +808,17 @@
 
     offsetX = slideNumber * sliderWidth;
 
-    slider.style['-webkit-transition-duration'] = '.2s';
+    var duration = '.2s';
+
+    if( $('#mySlider').attr('state') == 'active' ){
+      var currentActiveSlideOffset = $('.slide[state=active]').offset().left;
+      console.log(currentActiveSlideOffset);
+      console.log(2);
+      offsetX = "'" + currentActiveSlideOffset + "'";
+      duration = '.2s';
+    }
+
+    slider.style['-webkit-transition-duration'] = duration;
     slider.style.webkitTransform = 'translate3d(' + offsetX + 'px,0,0)';
 
     e = new CustomEvent('slide', {
