@@ -32,7 +32,11 @@ if (isset($_POST['shop_id']))
 			{
 				$sign_timestamp = '-';
 			}
-			$time_remaining = $sign_timestamp . gmdate('H:i', $timestamp_now - $timestamp_datetime_ordered);
+			$time_remaining = $sign_timestamp . gmdate('H:i', $timestamp_datetime_ordered - $timestamp_now);
+			
+			$date1 = new DateTime(getDateForDatabase());
+			$date2 = new DateTime($array_order_in_loop['datetime_ordered']);
+			
 			array_push($array_values_json, array(
 												'user' => $user_in_loop->getFirstName() . ' ' . strtoupper($user_in_loop->getLastName()),
 												'order_id' => $array_order_in_loop['order_id'],
@@ -48,4 +52,14 @@ if (isset($_POST['shop_id']))
 }
 
 echo json_encode($array_values_json);
+
+function date_difference($date1timestamp, $date2timestamp) {
+	$all = round(($date1timestamp - $date2timestamp) / 60);
+	$d = floor ($all / 1440);
+	$h = floor (($all - $d * 1440) / 60);
+	$m = $all - ($d * 1440) - ($h * 60);
+	//Since you need just hours and mins
+	return array('hours'=>$h, 'mins'=>$m);
+}
+
 ?>
