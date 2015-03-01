@@ -1,7 +1,3 @@
-
-
-
-
 $(document).ready(function(){
 
 	$('.options').hide();
@@ -47,6 +43,7 @@ $(document).ready(function(){
 		    	$('.slide[state!=active]').css('visibility','visible');
 				$slide.attr('state','inactive');	
 				$SuperParent.attr('state','inactive');
+				updatePreferences();
 		    }
 
 
