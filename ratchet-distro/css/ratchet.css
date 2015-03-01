@@ -1509,3 +1509,34 @@ select {
 .toggle.active .toggle-handle{
   border-color: #ccc; 
 }
+
+
+#decoration{
+  list-style-type: none;
+}
+.segmented-control{
+  margin-right: 3% !important;
+}
+#shots{
+  margin-right: 1%;
+}
+#price{
+  float: right;
+}
+.price div{
+  display: inline;
+}
+.price{
+  padding-right: 6%;
+  border: 0px;
+}
+.toggle.active{
+  background-color: #ccc;
+  border-color: #ccc;
+}
+.toggle.active:before{
+  color: black;
+}
+.toggle.active .toggle-handle{
+  border-color: #ccc; 
+}

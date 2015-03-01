@@ -46,6 +46,16 @@ $(document).ready(function(){
 				updatePreferences();
 		    }
 
+		    $('#shots').on('click', function(){
+		    	var shots = $(this).text();
+		    	if($(this).text() < 6){
+		    		$(this).text((parseInt(shots) + 1));
+		    	}
+		    	else{
+		    		$(this).text((1));
+		    	}
+		    });
+
 
 
 	});
