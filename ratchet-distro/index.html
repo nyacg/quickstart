@@ -30,10 +30,10 @@
 	    <div class="slide slidercontainer">
 	      <img class = "sliderimage" id="image1" src="assets/img/slide1.png">
 	      <span class="slide-text">
-        		<span id="options1toggleinactive" class="icon gray icon-right-nav"></span>
+        		<span id="options1toggle" class="icon gray icon-right-nav"></span>
         		Edit beverage
       	  </span>
-      	  <ul id = "options1inactive" class="table-view extraoptions">
+      	  <ul id = "options1" class="table-view extraoptions">
 			  <li class="table-view-cell">
 			    Sugar
 			    <div class="toggle">
@@ -209,73 +209,87 @@
         </a>
       </nav>
   <script type="text/javascript">
-  $(document).ready(function(){
-  		$("#options1toggleinactive").click(function(){
-  			$("#options1inactive").animate({
-  				opacity: 1
-  			}, 500);
-  			$("#image1").animate({
-  				marginTop: "-150px"
-  			}, 500);
-  			state = 1;
-  			});
-		var rotation = 0;
-		jQuery.fn.rotate = function(degrees) {
-		    $(this).css({'-webkit-transform' : 'rotate('+ degrees +'deg)',
-		                 '-moz-transform' : 'rotate('+ degrees +'deg)',
-		                 '-ms-transform' : 'rotate('+ degrees +'deg)',
-		                 'transform' : 'rotate('+ degrees +'deg)'});
-		    return $(this);
+  var rotation = 0;
+  var start = 0;
+  var toggle = 1;
+    jQuery.fn.rotate = function(degrees) {
+			    $(this).css({'-webkit-transform' : 'rotate('+ degrees +'deg)',
+			                 '-moz-transform' : 'rotate('+ degrees +'deg)',
+			                 '-ms-transform' : 'rotate('+ degrees +'deg)',
+			                 'transform' : 'rotate('+ degrees +'deg)'});
+			    return $(this);
+	};
+	var moremargin = function(){
+		  			if(toggle == 1){
+		$("#options1toggle").on("click", function(){
+	  			$("#options1").animate({
+	  				opacity: 1
+	  			}, 500);
+	  			$("#image1").animate({
+	  				marginTop: "-150px"
+	  			}, 500);
+	  			});
+	}
 		};
-		$('#options1toggleinactive').click(function() {
-		    rotation += 15;
-		    $(this).rotate(rotation);
-		    rotation += 15;
-		    $(this).rotate(rotation);
-		    rotation += 15;
-		    $(this).rotate(rotation);
-		    rotation += 15;
-		    $(this).rotate(rotation);
-		    rotation += 15;
-		    $(this).rotate(rotation);
-		    rotation += 15;
-		    $(this).rotate(rotation);
-		    jQuery(this).attr("id", "options1toggle");
-		    jQuery("#options1inactive").attr("id", "options1");
-		});
-		$("#options1toggle").click(function(){
-			console.log("banana");
-  			$("#options1").animate({
-  				opacity: 0
-  			}, 500);
-  			$("#image1").animate({
-  				marginTop: "150px"
-  			}, 500);
-  			});
-		jQuery.fn.rotateanti = function(degrees) {
-		    $(this).css({'-webkit-transform' : 'rotate('+ degrees +'deg)',
-		                 '-moz-transform' : 'rotate('+ degrees +'deg)',
-		                 '-ms-transform' : 'rotate('+ degrees +'deg)',
-		                 'transform' : 'rotate('+ degrees +'deg)'});
-		    return $(this);
+  function lessmargin(){
+  	  			if(toggle == 0){
+		$("#options1toggle").on("click", function(){
+			console.log("mememe");
+			start += 1;
+			if(start > 1){
+				start = 0;
+				main();
+			}
+			else{
+	  			$("#options1").animate({
+	  				opacity: 0
+	  			}, 500);
+	  			$("#image1").animate({
+	  				marginTop: "0px"
+	  			}, 500);
+	  					}
+	  			});
+	}
 		};
-
-		$('#options1toggle').click(function() {
-			console.log("banana");
-		    rotation += 45;
-		    $(this).rotateanti(rotation);
-		    rotation += 45;
-		    $(this).rotateanti(rotation);
-		    rotation += 45;
-		    $(this).rotateanti(rotation);
-		    rotation += 45;
-		    $(this).rotateanti(rotation);
-		    rotation += 45;
-		    $(this).rotateanti(rotation);
-		    rotation += 45;
-		    $(this).rotateanti(rotation);
-		});
-  	});
+  	var main = function(){
+  		if(toggle == 1){
+  			console.log("I run.")
+			moremargin();
+			fadein();
+		}
+  	};
+  function main2(){
+  	if(toggle == 0){
+  		$("#options1toggle").rotate(90);
+			lessmargin();
+		}
+		};
+  function fadein(){
+  		$('#options1toggle').click(function() {
+  			if(toggle == 1){
+				console.log("banana");
+			    rotation += 15;
+			    $(this).rotate(rotation);
+			    rotation += 15;
+			    $(this).rotate(rotation);
+			    rotation += 15;
+			    $(this).rotate(rotation);
+			    rotation += 15;
+			    $(this).rotate(rotation);
+			    rotation += 15;
+			    $(this).rotate(rotation);
+			    rotation += 15;
+			    $(this).rotate(rotation);
+			    toggle = 0;
+			    main2();
+			}
+			});
+  	};
+  $(document).on("ready" ,function(){
+  	if(start == 0){
+  		main();
+  	}
+});
   </script>
   </body>
 </html>
