@@ -40,6 +40,7 @@ if (isset($_POST['user_id']))
 		$array_values_json['product_configuration_name'] = $product_configuration_displayed->getName();
 		$array_values_json['product_configuration_price'] = $product_configuration_displayed->getPrice();
 		
+		$array_values_json['selection_comment'] = getCommentSelection($shop_displayed->getShopId(), $user_connected->getUserId());
 	}
 }
 

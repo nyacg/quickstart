@@ -124,4 +124,24 @@ function setOrderIsReceived($order_id) {
 								));
 	$update_orders_db->closeCursor();
 }
+
+function getCommentSelection($shop_id, $user_id) {
+	
+	include("database_connection.php");
+	
+	$comment = '';
+	
+	$select_selections_db = $db->prepare('SELECT comment FROM selections WHERE shop_id = :shop_id AND user_id = :user_id');
+	$select_selections_db->execute(array(
+									'shop_id' => $shop_id,
+									'user_id' => $user_id
+									));
+	if ($select_selections_data_db = $select_selections_db->fetch())
+	{
+		$comment = stripslashes($select_selections_data_db['comment']);
+	}
+	$select_selections_db->closeCursor();
+	
+	return $comment;
+}
 ?>

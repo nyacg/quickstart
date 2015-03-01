@@ -1,7 +1,3 @@
-
-
-
-
 $(document).ready(function(){
 
 	$('.options').hide();
@@ -47,7 +43,18 @@ $(document).ready(function(){
 		    	$('.slide[state!=active]').css('visibility','visible');
 				$slide.attr('state','inactive');	
 				$SuperParent.attr('state','inactive');
+				updatePreferences();
 		    }
+
+		    $('#shots').on('click', function(){
+		    	var shots = $(this).text();
+		    	if($(this).text() < 6){
+		    		$(this).text((parseInt(shots) + 1));
+		    	}
+		    	else{
+		    		$(this).text((1));
+		    	}
+		    });
 
 
 
