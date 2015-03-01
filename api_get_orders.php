@@ -31,11 +31,17 @@ if (isset($_POST['shop_id']))
 			if ($timestamp_now > $timestamp_datetime_ordered)
 			{
 				$sign_timestamp = '-';
+				$time_remaining = gmdate('H:i', $timestamp_now - $timestamp_datetime_ordered);
 			}
-			$time_remaining = $sign_timestamp . gmdate('H:i', $timestamp_datetime_ordered - $timestamp_now);
+			else
+			{
+				$time_remaining = gmdate('H:i', $timestamp_datetime_ordered - $timestamp_now);
+			}
 			
-			$date1 = new DateTime(getDateForDatabase());
-			$date2 = new DateTime($array_order_in_loop['datetime_ordered']);
+			$hoursToMinutes = substr($time_remaining, 0, 2) * 60;
+			
+			$time_remaining = substr($time_remaining, 3, 2) + $hoursToMinutes;
+			$time_remaining = $sign_timestamp . $time_remaining;
 			
 			array_push($array_values_json, array(
 												'user' => $user_in_loop->getFirstName() . ' ' . strtoupper($user_in_loop->getLastName()),

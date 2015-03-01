@@ -138,14 +138,15 @@ class User {
 		return $array;
 	}
 	
-	public function setSelection($shop_id, $product_configuration_id) {
+	public function setSelection($shop_id, $product_configuration_id, $comment) {
 		
 		include("database_connection.php");
 		
-		$update_selections_db = $db->prepare('UPDATE selections SET shop_id = :shop_id, user_id = :user_id, product_configuration_id = :product_configuration_id, datetime_edited = :datetime_edited WHERE user_id = :user_id');
+		$update_selections_db = $db->prepare('UPDATE selections SET shop_id = :shop_id, user_id = :user_id, product_configuration_id = :product_configuration_id, comment = :comment, datetime_edited = :datetime_edited WHERE user_id = :user_id');
 		$update_selections_db->execute(array(
 										'shop_id' => $shop_id,
 										'product_configuration_id' => $product_configuration_id,
+										'comment' => htmlspecialchars($comment),
 										'datetime_edited' => getDateForDatabase(),
 										'user_id' => $this->user_id
 										));

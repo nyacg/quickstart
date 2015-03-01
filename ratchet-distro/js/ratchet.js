@@ -811,11 +811,12 @@
     var duration = '.2s';
 
     if( $('#mySlider').attr('state') == 'active' ){
-      var currentActiveSlideOffset = $('.slide[state=active]').offset().left;
-      console.log(currentActiveSlideOffset);
-      console.log(2);
-      offsetX = "'" + currentActiveSlideOffset + "'";
+      // var currentActiveSlideOffset = $('.slide[state=active]').offset().left;
+      // console.log(currentActiveSlideOffset);
+      // offsetX = "'" + currentActiveSlideOffset + "'";
+      offsetX = 0;
       duration = '.2s';
+      return false;
     }
 
     slider.style['-webkit-transition-duration'] = duration;

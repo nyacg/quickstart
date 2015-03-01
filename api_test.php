@@ -39,6 +39,7 @@
 	<label for="user_id">user_id</label><input type="input" name="user_id" id="user_id" value="1" /><br />
 	<label for="shop_id">shop_id</label><input type="input" name="shop_id" id="shop_id" value="1" /><br />	
 	<label for="product_configuration_id">product_configuration_id</label><input type="input" name="product_configuration_id" id="product_configuration_id" value="1" /><br />
+	Comment <textarea name="comment"></textarea><br />
 	<button type="submit">SUBMIT</button>
 </form>
 
@@ -93,5 +94,15 @@
 <h1>GET ORDERS</h1>
 <form method="post" action="api_get_orders.php">
 	<label for="shop_id">shop_id</label><input type="input" name="shop_id" id="shop_id" value="1" /><br />
+	<button type="submit">SUBMIT</button>
+</form>
+
+
+<hr />
+
+<h1>ORDER IS RECEIVED</h1>
+<form method="post" action="api_order_is_received.php">
+	<label for="shop_id">shop_id</label><input type="input" name="shop_id" id="shop_id" value="1" /><br />
+	<label for="order_id">order_id</label><input type="input" name="order_id" id="order_id" value="1" /><br />
 	<button type="submit">SUBMIT</button>
 </form>
