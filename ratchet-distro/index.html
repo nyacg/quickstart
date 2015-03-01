@@ -31,45 +31,6 @@
 
     <!-- Coffee 1 ---------------------------------------------- -->
 	    <div class="slide slidercontainer">
-<<<<<<< Updated upstream
-	      <img class = "sliderimage" id="image1" src="assets/img/slide1.png">
-	      <span class="slide-text">
-        		<span id="options1toggle" class="icon gray icon-right-nav"></span>
-        		Edit beverage
-      	  </span>
-      	  <ul id = "options1" class="table-view extraoptions">
-			  <li class="table-view-cell">
-			    Sugar
-			    <div class="toggle">
-			      <div class="toggle-handle"></div>
-			    </div>
-			  </li>
-			  <li class="table-view-cell">
-			    Soy Milk
-			    <div class="toggle active">
-			      <div class="toggle-handle"></div>
-			    </div>
-			  </li>
-			  <li class="table-view-cell">
-			    Skinny
-			    <div class="toggle active">
-			      <div class="toggle-handle"></div>
-			    </div>
-			  </li>
-			  <li>
-			  <form class="input-group">
-		      		<div class="input-row">
-				  		  <label>Syrups</label>
-    					<input type="text" placeholder="Vanilla, Ice, Ice Baby">
-			  		</div>
-			  	</form>
-			  </li>
-			  <li class="table-view-cell">
-			   Espresso shots
-			   <span class="badge">4</span>
-			  </li>
-		  </ul>
-=======
 
 	    	<!-- Image -->
 	    	<img class = "sliderimage" id="image1" src="assets/img/slide1.png">
@@ -114,7 +75,6 @@
 			  	</li>
 		  	</ul>
 
->>>>>>> Stashed changes
 	    </div>
 
     <!-- Coffee 2 ---------------------------------------------- -->
@@ -293,96 +253,10 @@
           <span class="tab-label">Settings</span>
         </a>
       </nav>
-<<<<<<< Updated upstream
-  <script type="text/javascript">
-  var rotation = 0;
-  var start = 0;
-  var toggle = 1;
-    jQuery.fn.rotate = function(degrees) {
-			    $(this).css({'-webkit-transform' : 'rotate('+ degrees +'deg)',
-			                 '-moz-transform' : 'rotate('+ degrees +'deg)',
-			                 '-ms-transform' : 'rotate('+ degrees +'deg)',
-			                 'transform' : 'rotate('+ degrees +'deg)'});
-			    return $(this);
-	};
-	var moremargin = function(){
-		  			if(toggle == 1){
-		$("#options1toggle").on("click", function(){
-	  			$("#options1").animate({
-	  				opacity: 1
-	  			}, 500);
-	  			$("#image1").animate({
-	  				marginTop: "-150px"
-	  			}, 500);
-	  			});
-	}
-		};
-  function lessmargin(){
-  	  			if(toggle == 0){
-		$("#options1toggle").on("click", function(){
-			console.log("mememe");
-			start += 1;
-			if(start > 1){
-				start = 0;
-				main();
-			}
-			else{
-	  			$("#options1").animate({
-	  				opacity: 0
-	  			}, 500);
-	  			$("#image1").animate({
-	  				marginTop: "0px"
-	  			}, 500);
-	  					}
-	  			});
-	}
-		};
-  	var main = function(){
-  		if(toggle == 1){
-  			console.log("I run.")
-			moremargin();
-			fadein();
-		}
-  	};
-  function main2(){
-  	if(toggle == 0){
-  		$("#options1toggle").rotate(90);
-			lessmargin();
-		}
-		};
-  function fadein(){
-  		$('#options1toggle').click(function() {
-  			if(toggle == 1){
-				console.log("banana");
-			    rotation += 15;
-			    $(this).rotate(rotation);
-			    rotation += 15;
-			    $(this).rotate(rotation);
-			    rotation += 15;
-			    $(this).rotate(rotation);
-			    rotation += 15;
-			    $(this).rotate(rotation);
-			    rotation += 15;
-			    $(this).rotate(rotation);
-			    rotation += 15;
-			    $(this).rotate(rotation);
-			    toggle = 0;
-			    main2();
-			}
-			});
-  	};
-  $(document).on("ready" ,function(){
-  	if(start == 0){
-  		main();
-  	}
-});
-  </script>
-=======
 
 
 
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="transit.js"></script>
->>>>>>> Stashed changes
   </body>
 </html>

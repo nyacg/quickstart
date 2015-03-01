@@ -53,40 +53,7 @@ $(document).ready(function(){
 
 	});
 
-
-
-  	/* $(".optionsToggle").click(function(){
-  		$(".options").animate({
-  				opacity: 1
-  			}, 500);
-  			$("#image1").animate({
-  				marginTop: "-150px"
-  			}, 500);
-  			state = 1;
-  			});
-		
-
-		
-		$(".optionsToggle").click(function(){
-			console.log("banana");
-  			$(".options1").animate({
-  				opacity: 0
-  			}, 500);
-  			$("#image1").animate({
-  				marginTop: "150px"
-  			}, 500);
-  			});
-		jQuery.fn.rotateanti = function(degrees) {
-		    $(this).css({'-webkit-transform' : 'rotate('+ degrees +'deg)',
-		                 '-moz-transform' : 'rotate('+ degrees +'deg)',
-		                 '-ms-transform' : 'rotate('+ degrees +'deg)',
-		                 'transform' : 'rotate('+ degrees +'deg)'});
-		    return $(this);
-		};
-	*/
-
-		
-  	});
+});
 
 
 
