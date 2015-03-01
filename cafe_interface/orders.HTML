@@ -28,8 +28,8 @@
 
 <script type="text/javascript">
 	var table;
+	var shopId = $("input[name='shop_id']").val();
 	$(document).ready(function(){
-		var shopId = $("input[name='shop_id']").val();
 		table = $('#data').DataTable( {
        		"order": [[ 4, "asc" ]],
     	});
@@ -43,6 +43,41 @@
 			console.log("getting shop info failed");
 		});
 
+		setInterval("getOrderDetails()",5000);
+
+		$('tbody').on('click', 'tr', function(){
+			var $row = $(this);
+			var orderId = $row.find('td').eq(0).text();
+			console.log(orderId);
+			
+			$.post("http://extramegacool.com/quickstart.me/api_order_is_received.php", {shop_id: shopId, order_id: orderId}, function(data){
+				console.log(data);
+				console.log(data.result);
+				if(data.result){
+					$row.fadeOut();
+				}
+			}, "json").fail(function(){
+				console.log("setting order collected failed");
+			});
+			
+			
+		});
+
+	});
+
+	function makeNice(time){
+		minutes = parseInt(time);
+
+		if(minutes < 0){
+			return "<span class='label label-danger'>" + minutes + " minutes</span>";
+		} else if (minutes < 5) {
+			return "<span class='label label-warning'>" + minutes + " minutes</span>";
+		} else {
+			return "<span class='label label-info'>" + minutes + " minutes</span>";
+		}
+	}		
+
+	function getOrderDetails() {
 		$.post("http://extramegacool.com/quickstart.me/api_get_orders.php", {shop_id: shopId}, function(data){
 			table.clear();
 
@@ -57,31 +92,9 @@
 
 
 		}, "json").fail(function(){
-			console.log("get order detailsfail");
+			console.log("get order details fail");
 		});
-
-		$('tbody').on('click', 'tr', function(){
-			var id = $(this).find('td').eq(0).text();
-			console.log(id);
-			
-			
-			
-		});
-
-	});
-
-	function makeNice(time){
-		time = time.split("");
-		var minutes = 60*time[0] + time[1];
-
-		if(minutes < 0){
-			return "<span class='label label-danger'>" + minutes + " minutes</span>";
-		} else if (minutes < 5) {
-			return "<span class='label label-warning'>" + minutes + " minutes</span>";
-		} else {
-			return "<span class='label label-info'>" + minutes + " minutes</span>";
-		}
-	}		
+	}
 
 		// large suger free skinny late with two pumps instead of three and honey on top
 	
