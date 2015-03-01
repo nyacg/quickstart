@@ -152,15 +152,16 @@ class User {
 		$update_selections_db->closeCursor();
 	}
 	
-	public function addOrder($product_configuration_id, $datetime_ordered, $comment) {
+	public function addOrder($shop_id, $product_configuration_id, $datetime_ordered, $comment) {
 		
 		include("database_connection.php");
 		
-		$insert_order_db = $db->prepare('INSERT INTO orders(product_configuration_id, user_id, comment, is_received, datetime_ordered)
-													VALUES(:product_configuration_id, :user_id, :comment, :is_received, :datetime_ordered)');
+		$insert_order_db = $db->prepare('INSERT INTO orders(product_configuration_id, user_id, shop_id, comment, is_received, datetime_ordered)
+													VALUES(:product_configuration_id, :user_id, :shop_id, :comment, :is_received, :datetime_ordered)');
 		$insert_order_db->execute(array(
 									'product_configuration_id' => $product_configuration_id,
 									'user_id' => $this->user_id,
+									'shop_id' => $shop_id,
 									'comment' => htmlspecialchars($comment),
 									'is_received' => 0,
 									'datetime_ordered' => $datetime_ordered

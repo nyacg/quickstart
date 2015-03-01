@@ -36,6 +36,7 @@ if (isset($_POST['shop_id']))
 			array_push($array_values_json, array(
 												'user' => $user_in_loop->getFirstName() . ' ' . strtoupper($user_in_loop->getLastName()),
 												'order_id' => $array_order_in_loop['order_id'],
+												'comment' => $array_order_in_loop['comment'],
 												'product_name' => $product_in_loop->getName() . ' (' . $array_order_in_loop['product_configuration_name'] . ')',
 												'product_price' => $array_order_in_loop['product_configuration_price'],
 												'order_time' => $array_order_in_loop['order_time'],
