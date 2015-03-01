@@ -87,4 +87,41 @@ function getAllProducts() {
 
 	return $array_products;
 }
+
+/*
+*	Called in api_order_is_received.php
+*/
+function checkOrderIdExists($order_id) {
+	
+	include("database_connection.php");
+	
+	$order_exists = false;
+	
+	$select_orders_db = $db->prepare('SELECT order_id FROM orders WHERE order_id = :order_id');
+	$select_orders_db->execute(array(
+								'order_id' => $order_id
+								));
+	if ($select_orders_data_db = $select_orders_db->fetch() AND 0 < $select_orders_data_db['order_id'])
+	{
+		$order_exists = true;
+	
+	}$select_orders_db->closeCursor();
+	
+	return $order_exists;
+}
+
+/*
+*	Called in api_order_is_received.php
+*/
+function setOrderIsReceived($order_id) {
+	
+	include("database_connection.php");
+	
+	$update_orders_db = $db->prepare('UPDATE orders SET is_received = :is_received WHERE order_id = :order_id');
+	$update_orders_db->execute(array(
+								'is_received' => $is_received,
+								'order_id' => $order_id
+								));
+	$update_orders_db->closeCursor();
+}
 ?>

@@ -19,6 +19,7 @@
 	<label for="user_id">user_id</label><input type="input" name="user_id" id="user_id" value="1" /><br />
 	<label for="product_configuration_id">product_configuration_id</label><input type="input" name="product_configuration_id" id="product_configuration_id" value="1" /><br />
 	<label for="datetime_ordered">datetime_ordered</label><input type="input" name="datetime_ordered" id="datetime_ordered" value="2014-03-01 20:00:00" /><br />
+	Comment <textarea name="comment"></textarea><br />
 	<button type="submit">SUBMIT</button>
 </form>
 
