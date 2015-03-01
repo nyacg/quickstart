@@ -9,10 +9,19 @@ function updatePreferences(){
 	var config = size + sugar + soy + shots + special;
 	console.log(config);
 
-	/*$.post("http://extramegacool.com/quickstart.me/api_get_selection.php", {shop_id: shopId, user_id: userId, comment: config}, function(data){	
+	$.post("http://extramegacool.com/quickstart.me/api_get_selection.php", {shop_id: shopId, user_id: userId, comment: config}, function(data){	
 
 	}, "json").fail(function(){
 		console.log("get order details fail");
+	});
+
+	/*var date = new Date();
+	date = date.setMinutes(date.getMinutes + 5);
+
+	$.post("http://extramegacool.com/quickstart.me/api_order.php", {shop_id: shopId, user_id: userId, comment: config, datetime_ordered: date}, function(data){	
+
+	}, "json").fail(function(){
+		console.log("place order fail");
 	});*/
 }
 

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>QuickStart</title>
+    <title>Ratchet template page</title>
 
     <!-- Sets initial viewport load and disables zooming  -->
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
@@ -13,6 +13,7 @@
 
     <!-- Include the compiled Ratchet CSS -->
     <link href="css/ratchet.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 
     <!-- Include the compiled Ratchet JS -->
     <script src="js/ratchet.js"></script>
@@ -21,276 +22,27 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   </head>
   <body>
+  
     <!-- Make sure all your bars are the first things in your <body> -->
-    <header class="bar bar-nav">
-<<<<<<< HEAD
-    	<a class="icon icon-left-nav pull-left" href="cafe.html"></a>
-    	<h1 class="title">At Starbucks</h1>
-=======
-      <h1 class="title">QuickStart</h1>
->>>>>>> origin/master
-    </header>
+	<div class="content firstload">
+    <a class="navigate-right" href="cafe.html" data-transition="slide-in">
+      <div class="card load">
 
-    <div class="slider" id="mySlider" >
-	<div class="slide-group">
+        <h1>QuickStart</h1>
+        <span>
+          Welcome Robert <br>
+          <img class = "sliderimage" id="image1" width="100px" height="" src="coffee20.svg">
+        </span>
 
-    <!-- Coffee 1 ---------------------------------------------- -->
-	    <div class="slide slidercontainer">
-
-	    	<!-- Image -->
-	    	<img class = "sliderimage" id="image1" src="assets/img/slide1.png">
-
-	    	<!-- ToggleArrow -->
-	      	<span class="slide-text">
-        		<span class="optionsToggle icon gray icon-right-nav" state="inactive" ></span> 
-        		Configure
-      	  	</span>
-
-	    	<!-- Options -->
-      	  	<span class="slide-text">
-        		<span class="optionsToggle icon gray icon-right-nav" state="inactive" ></span> 
-        		Configure
-      	  	</span>
-
-	    	<!-- Options -->
-      	  	<ul class="options" class="table-view extraoptions" >
-      	  	<li class="table-view-cell price">
-      	  		<div>Price </div>
-				<div id="price">4.99</div>
-      	  	</li>
-      	  	<div class="segmented-control" id="sizes">
-			  <a class="control-item active" href="#item1mobile">
-			    Small
-			  </a>
-			  <a class="control-item" href="#item2mobile">
-			    Medium
-			  </a>
-			  <a class="control-item" href="#item3mobile">
-			    Large
-			  </a>
-			</div>
-			  	<li class="table-view-cell">
-			    	Sugar
-			    	<div class="toggle active" id="sugar-toggle">
-			      		<div class="toggle-handle"></div>
-			    	</div>
-			  	</li>
-			  	<li class="table-view-cell">
-			    	Soy Milk
-			    	<div class="toggle" id="milk-toggle">
-			      		<div class="toggle-handle"></div>
-			    	</div>
-			  	</li>
-			  	<li class="table-view-cell">
-			   		Espresso shots
-			   		<span id="shots" class="badge">2</span>
-			  	</li>
-			  	<li id="decoration">
-			  		<form class="input-group">
-		      			<div class="input-row">
-				  			<label>Special notes</label>
-    						<input type="text" id="special" placeholder="How do you want it?">
-			  			</div>
-			  		</form>
-			  	</li>
-		  	</ul>
-
-	    </div>
-
-    <!-- Coffee 2 ---------------------------------------------- -->
-    	<div class="slide slidercontainer">
-
-    		<!-- Image -->
-	    	<img class = "sliderimage" id="image2" src="assets/img/slide2.png">
-
-	    	<!-- ToggleArrow -->
-	      	<span class="slide-text">
-        		<span class="optionsToggle icon gray icon-right-nav" state="inactive" ></span> 
-        		Edit beverage
-      	  	</span>
-
-	    	<!-- Options -->
-      	  	<span class="slide-text">
-        		<span class="optionsToggle icon gray icon-right-nav" state="inactive" ></span> 
-        		Configure
-      	  	</span>
-
-	    	<!-- Options -->
-      	  	<ul class="options" class="table-view extraoptions" >
-      	  	<li class="table-view-cell price">
-      	  		<div>Price </div>
-				<div id="price">4.99</div>
-      	  	</li>
-      	  	<div class="segmented-control">
-			  <a class="control-item active" href="#item1mobile">
-			    Small
-			  </a>
-			  <a class="control-item" href="#item2mobile">
-			    Medium
-			  </a>
-			  <a class="control-item" href="#item3mobile">
-			    Large
-			  </a>
-			</div>
-			  	<li class="table-view-cell">
-			    	Sugar
-			    	<div class="toggle active">
-			      		<div class="toggle-handle"></div>
-			    	</div>
-			  	</li>
-			  	<li class="table-view-cell">
-			    	Soy Milk
-			    	<div class="toggle">
-			      		<div class="toggle-handle"></div>
-			    	</div>
-			  	</li>
-			  	<li class="table-view-cell">
-			   		Espresso shots
-			   		<span id="shots" class="badge">4</span>
-			  	</li>
-			  	<li id="decoration">
-			  		<form class="input-group">
-		      			<div class="input-row">
-				  			<label>Special notes</label>
-    						<input type="text" placeholder="Vanilla, Ice, Ice Baby">
-			  			</div>
-			  		</form>
-			  	</li>
-		  	</ul>
-
-	    </div>
+      </div>
+    </a>
 
 
-    <!-- Coffee 3 ---------------------------------------------- -->
-	    <div class="slide slidercontainer">
-	      <img class = "sliderimage" src="assets/img/slide3.png">
-	      <span class="slide-text">
-        		<span class="icon gray icon-right-nav"></span>
-        		Edit beverage
-      	  </span>
-      	  <ul class="options" class="table-view extraoptions">
-			  <li class="table-view-cell">
-			    Sugar
-			    <div class="toggle">
-			      <div class="toggle-handle"></div>
-			    </div>
-			  </li>
-			  <li class="table-view-cell">
-			    Soy Milk
-			    <div class="toggle active">
-			      <div class="toggle-handle"></div>
-			    </div>
-			  </li>
-			  <li class="table-view-cell">
-			   Espresso shots
-			   <span class="badge">4</span>
-			  </li>
-		  </ul>
-	    </div>
-
-    <!-- Coffee 4 ---------------------------------------------- -->
-	    <div class="slide slidercontainer">
-	      <img class = "sliderimage" src="assets/img/slide4.png">
-	      <span class="slide-text">
-        		<span class="icon gray icon-right-nav"></span>
-        		Edit beverage
-      	  </span>
-      	  <ul class="options" class="table-view extraoptions">
-			  <li class="table-view-cell">
-			    Sugar
-			    <div class="toggle">
-			      <div class="toggle-handle"></div>
-			    </div>
-			  </li>
-			  <li class="table-view-cell">
-			    Soy Milk
-			    <div class="toggle active">
-			      <div class="toggle-handle"></div>
-			    </div>
-			  </li>
-			  <li class="table-view-cell">
-			   Espresso shots
-			   <span class="badge">4</span>
-			  </li>
-		  </ul>
-	    </div>
-
-    <!-- Coffee 5 ---------------------------------------------- -->
-	    <div class="slide slidercontainer">
-	      <img class = "sliderimage" src="assets/img/slide5.png">
-	      <span class="slide-text">
-        		<span class="icon gray icon-right-nav"></span>
-        		Edit beverage
-      	  </span>
-      	  <ul class="options" class="table-view extraoptions">
-			  <li class="table-view-cell">
-			    Sugar
-			    <div class="toggle">
-			      <div class="toggle-handle"></div>
-			    </div>
-			  </li>
-			  <li class="table-view-cell">
-			    Soy Milk
-			    <div class="toggle active">
-			      <div class="toggle-handle"></div>
-			    </div>
-			  </li>
-			  <li class="table-view-cell">
-			   Espresso shots
-			   <span class="badge">4</span>
-			  </li>
-		  </ul>
-	    </div>
-
-    <!-- Coffee 6 ---------------------------------------------- -->
-	    <div class="slide slidercontainer">
-	      <img class = "sliderimage" src="assets/img/slide6.png">
-	      <span class="slide-text">
-        		<span class="icon gray icon-right-nav"></span>
-        		Select beverage
-      	  </span>
-      	  <ul class="options" class="table-view extraoptions">
-			  <li class="table-view-cell"> Sugar 
-			  		<div class="toggle">
-			  			<div class="toggle-handle"></div>
-			    	</div>
-			  </li>
-			  <li class="table-view-cell"> Soy Milk
-			    	<div class="toggle active">
-			      		<div class="toggle-handle"></div>
-			    	</div>
-			  </li>
-			  <li class="table-view-cell">
-			   Espresso shots
-			   <span class="badge">4</span>
-			  </li>
-		  </ul>
-	    </div>
+		
 	</div>
-	</div>
-
-
-
-    <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
-      <nav class="bar bar-tab">
-        <a class="tab-item active" href="#">
-          <span class="icon icon-person"></span>
-          <span class="tab-label">My Coffee</span>
-        </a>
-        <a class="tab-item" href="#">
-          <span class="icon icon-star-filled"></span>
-          <span class="tab-label">Rewards</span>
-        </a>
-        <a class="tab-item" href="#">
-          <span class="icon icon-gear"></span>
-          <span class="tab-label">Settings</span>
-        </a>
-      </nav>
-
 
 
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="transit.js"></script>
-	<script src="js/user_ajax.js"></script>
   </body>
 </html>

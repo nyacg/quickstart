@@ -1482,6 +1482,9 @@ select {
 
 #decoration{
   list-style-type: none;
+  /*list-style: none;*/
+  color: white;
+  background: black;
 }
 .segmented-control{
   margin-right: 3% !important;
@@ -1510,9 +1513,15 @@ select {
   border-color: #ccc; 
 }
 
-
-#decoration{
+ul{
   list-style-type: none;
+}
+
+.decoration{
+  list-style: none !important;
+}
+#decoration{
+  list-style-type: none !important;
 }
 .segmented-control{
   margin-right: 3% !important;

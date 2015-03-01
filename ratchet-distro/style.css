@@ -1,0 +1,48 @@
+.firstload {
+	color: #fef4e9;
+	background: #f78d1d;
+	background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+	background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
+}
+
+.load{
+	background-color: transparent;
+	background: transparent;
+	border:none;
+	color: white;
+	font-family: Brush Script MT;
+	font-size: 2em;
+	margin-top: 60%;
+}
+
+.load span {
+	display:block;
+   width:180px;
+   height: 100%;
+   margin: 0 auto;
+}
+
+#decoration{
+	list-style: none;
+	background: black;
+	color: white;
+}
+
+.firstload a {
+	display:block;
+}
+
+.load img {
+	margin-left:40px;
+	margin-top: 30px;
+}
+
+.load h1 {
+	font-size:  1.8em;
+	display:block;
+   width:250px;
+   height: 100%;
+   margin: 0 auto;
+}
+

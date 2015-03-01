@@ -1,3 +1,5 @@
+var shopId = 1;
+var userId = 1;
 $(document).ready(function(){
 
 	$('.options').hide();
@@ -54,6 +56,11 @@ $(document).ready(function(){
 		    	else{
 		    		$(this).text((1));
 		    	}
+		    });
+
+		    $('#sizes').find('.control-item').click(function(){
+		    	var index = $('#sizes').find('.control-item').index($(this));
+		    	$('#price').text("£" + (3.49 + index));
 		    });
 
 
